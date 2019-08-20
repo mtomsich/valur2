@@ -1,0 +1,34 @@
+<?php
+
+  function acomodaTexto ($texto){
+	$texto.=" ";
+	echo $texto."<br>"."<br>";
+	$largo_del_texto = strlen ( $texto );
+	$cantidad_caracteres_por_linea = 70;
+	$inicio = 0;
+	$cantidad_de_lineas= 0;
+	$cant_retrasos = 0;
+	$cantidad_filas = $largo_del_texto/$cantidad_caracteres_por_linea +1 ;
+	for ($i=0; $i < $cantidad_filas; $i++) {
+
+		${"linea".$i} = substr($texto, $inicio, $cantidad_caracteres_por_linea);
+		$ultimo_caracter = substr(${"linea".$i}, -1);
+		if ($ultimo_caracter != " ") {
+			$fin_linea = $cantidad_caracteres_por_linea;
+			$cant_retrasos=0;
+			while ($ultimo_caracter != " ") {
+				$fin_linea--;
+				${"linea".$i} = substr($texto, $inicio, $fin_linea);
+				$ultimo_caracter = substr(${"linea".$i}, -1);
+				$cant_retrasos++;
+			}
+		}
+		$inicio = $inicio + $cantidad_caracteres_por_linea - $cant_retrasos;
+		$cantidad_de_lineas++;
+	}
+	for ($i=0; $i < $cantidad_de_lineas; $i++) {
+		echo ${"linea".$i}."<br>";
+	}
+  return;
+  }
+  ?>
