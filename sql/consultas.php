@@ -44,7 +44,7 @@
 	$consultaProfesionales= mysqli_query($conexion,"SELECT * FROM profesionales WHERE `idUsuario`=".$_SESSION['idUsuario']." ORDER By pnombreApellido")
     or die("No se puede traer listado de profesionales".mysqli_error($conexion));
 
-	$consultaPartidos= mysqli_query($conexion,"SELECT * FROM partidos ORDER By partido")
+	$consultaPartidos= mysqli_query($conexion,"SELECT * FROM partidos where codProvincia=1 ORDER By partido")
     or die("No se puede traer listado de partidos".mysqli_error($conexion));
 
 	$consultaObras= mysqli_query($conexion,"SELECT * FROM obras where desactivada='0' AND $condicion ORDER By partida")

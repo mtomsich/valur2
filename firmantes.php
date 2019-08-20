@@ -191,7 +191,7 @@
 																		<option value="" >Seleccione Partido</option>
 																		<?php
 																		while ($fila=mysqli_fetch_row($consultaPartidos)) {
-																			echo "<option value='".$fila['0']."'>".$fila['2']."</option>";
+																			echo "<option value='".$fila['0']."'>".$fila['3']."</option>";
 																		}
 																		?>
 																	</select>
@@ -259,25 +259,19 @@
 														<div class="control-group">
 																<label class="control-label" for="firstname">CP</label>
 																<div class="controls">
-																	<input type="text" class="form-control" name="cp" id="cp" placeholder=" " value="CP">
-
+																	<input type="text" class="form-control text inline span2" name="cp" id="cp" placeholder=" " value="CP">
+																
 																</div> <!-- /controls -->
-														</div> <!-- /control-group --><BR>
+														</div> <!-- /control-group -->
 
 
 
-														<div class="control-group">
-															<label class="control-label" for="firstname">Número</label>
-																<div class="controls">
-																	<input type="text" class="form-control text inline span2" name="nroCalle" id="firstname" value="">
-																</div> <!-- /controls -->
-														</div> <!-- /control-group --><br>
-
-
-														<br>
-
-
-
+															<div class="control-group">
+																<label class="control-label" for="firstname">Número</label>
+																	<div class="controls">
+																		<input type="text" class="form-control text inline span2" name="nroCalle" id="firstname" value="">
+																	</div> <!-- /controls -->
+														  </div> <!-- /control-group -->
 
 
 															<div class="control-group">
@@ -304,19 +298,16 @@
 															<div class="control-group">
 																<label class="control-label" for="lastname">Teléfono</label>
 																<div class="controls">
-																	<input type="text" class="form-control span4" name="telefono" id="lastname" value="">
+																	<input type="text" class="form-control span2" name="telefono" id="lastname" value="">
 																</div> <!-- /controls -->
 															</div> <!-- /control-group -->
 
 															<div class="control-group">
 																<label class="control-label" for="lastname">Caracter</label>
 																<div class="controls">
-																	<input type="text" class="form-control span3" name="caracter" id="lastname" value="">
+																	<input type="text" class="form-control span2" name="caracter" id="lastname" value="">
 																</div> <!-- /controls -->
 															</div> <!-- /control-group -->
-
-
-
 
 															<div class="controls span9">
 																<div class="alert">
