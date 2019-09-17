@@ -12,11 +12,13 @@ function selectLocalidad(element) {
 			clearSelect();
 			addSelect(this.responseText);
     }
+		
 
   };
   xhttp.open("POST", "selectLocalidad.php", true);
 	xhttp.setRequestHeader("Content-type", "application/x-www-form-urlencoded");
 	xhttp.send("idPartido=" + partidoID);
+	console.log(xhttp);
 
 }
 

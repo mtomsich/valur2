@@ -17,7 +17,7 @@ function selectCalles(elementC) {
   xhttpC.open("POST", "selectCalles.php", true);
 	xhttpC.setRequestHeader("Content-type", "application/x-www-form-urlencoded");
 	xhttpC.send("idLocalidad=" + localidadID);
-
+console.log(xhttpC);
 }
 
 function clearSelectC() {

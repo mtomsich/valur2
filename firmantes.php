@@ -201,8 +201,8 @@
 															<div class="control-group">
 																<label class="control-label" for="calles" >Localidad<b style="color:#FF0000";>*</b></label>
 																<div class="controls">
-																	<select id="localidad" data-size="5" data-hide-disabled="true" onchange="selectCalles(this);" class="selectpicker" data-live-search="true" name="localSeleccionada" required>
-																		<option value="">Seleccione Localidad</option>
+																	<select id="localidad" data-size="5" data-hide-disabled="true" onchange="selectCalles(this);" class="selectpicker" data-live-search="true" title="Seleccione Localidad" name="localSeleccionada" required>
+																		<option value="" >Seleccione Localidad</option>
 																		<?php
 																		/*while ($fila=mysqli_fetch_row($consultaLocalidades)) {
 																		echo "<option value='".$fila['0']."'>".$fila['2']."</option>";
@@ -213,6 +213,8 @@
 																</select>
 															</div> <!-- /controls -->
 														</div> <!-- /control-group -->
+
+
 
 														<div class="control-group">
 															<label class="control-label" for="alturas">Calle<b style="color:#FF0000";>*</b></label>
@@ -260,7 +262,7 @@
 																<label class="control-label" for="firstname">CP</label>
 																<div class="controls">
 																	<input type="text" class="form-control text inline span2" name="cp" id="cp" placeholder=" " value="CP">
-																
+
 																</div> <!-- /controls -->
 														</div> <!-- /control-group -->
 
