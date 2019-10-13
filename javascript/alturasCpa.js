@@ -1,4 +1,4 @@
-function selectAlturas(elementA) {
+function selectAlturasCpa(elementA) {
 	var callesID = elementA.options[elementA.selectedIndex].value;
 	var parxA = document.getElementById("idCalles");
 	if(parxA)
@@ -15,27 +15,27 @@ function selectAlturas(elementA) {
     }
 
   };
-  xhttpA.open("POST", "selectAlturas.php", true);
+  xhttpA.open("POST", "selectAlturasCpa.php", true);
 	xhttpA.setRequestHeader("Content-type", "application/x-www-form-urlencoded");
 	xhttpA.send("idCalles=" + callesID);
-
+console.log(xhttpA);
 
 }
 
 function clearSelectA() {
-	var alturas = document.getElementById("alturas");
+	var alturasCpa = document.getElementById("alturasCpa");
 
-	while (alturas.length) {
-  	alturas.remove(0);
+	while (alturasCpa.length) {
+  	alturasCpa.remove(0);
 
 	}
 
-	$('#alturas').selectpicker('refresh');
+	$('#alturasCpa').selectpicker('refresh');
 }
 
 function addSelectA(sqlJson) {
 	var arrayA = JSON.parse(sqlJson);
-  var selectA = document.getElementById("alturas");
+  var selectA = document.getElementById("alturasCpa");
 
 	for (var objA in arrayA) {
 		var optA = document.createElement('option');
@@ -45,6 +45,6 @@ function addSelectA(sqlJson) {
 	}
 
 
-	$('#alturas').selectpicker('refresh');
+	$('#alturasCpa').selectpicker('refresh');
 
 }

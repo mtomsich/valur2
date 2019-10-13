@@ -13,7 +13,7 @@
 		<script type="text/javascript">
 		function cambiar( obj ){
 				var aux = document.getElementById("sexo");
-				text = aux.options[aux.selectedIndex].innerText; //El texto de la opción seleccionada
+					text = aux.options[aux.selectedIndex].innerText; //El texto de la opción seleccionada
 				if (text == "Sociedad"){
 					var container = document.getElementById("cambio");
 					container.innerHTML = "CUIT"+"*".fontcolor("red");
@@ -45,6 +45,29 @@
 			}
 		}
 		</script>
+
+	<script>
+	$(document).ready(function(){
+		$("#cpa_chek").click(function(evento){
+			 if ($("#cpa_chek").attr("checked")){
+					$("#formCpa").css("display", "block");
+			 }else{
+					$("#formCpa").css("display", "none");
+			 }
+		});
+	});
+	</script>
+	<script>
+	$(document).ready(function(){
+		$("#cp_chek").click(function(evento){
+			 if ($("#cp_chek").attr("checked")){
+					$("#formCp").css("display", "block");
+			 }else{
+					$("#formCp").css("display", "none");
+			 }
+		});
+	});
+	</script>
 
 			<body>
 
@@ -217,10 +240,10 @@
 
 
 														<div class="control-group">
-															<label class="control-label" for="alturas">Calle<b style="color:#FF0000";>*</b></label>
+															<label class="control-label" for="alturasCp; alturasCpa">Calle<b style="color:#FF0000";>*</b></label>
 															<div class="controls">
 																<!--<input type="text" class="form-control text inline span6" name="calle" id="firstname" value="">-->
-																<select id="calles" data-size="5" data-hide-disabled="true" onchange="selectAlturas(this) "  class="selectpicker" data-live-search="true" title="Seleccione Calle"  name="calleSeleccionada" required>
+																<select id="calles" data-size="5" data-hide-disabled="true" onchange="selectAlturasCp(this); selectAlturasCpa(this)" class="selectpicker" data-live-search="true" title="Seleccione Calle"  name="calleSeleccionada" required>
 																	<option value="">Seleccione Calle</option>
 																	<?php
 																	/*while ($fila=mysqli_fetch_row($consultaLocalidades)) {
@@ -231,11 +254,18 @@
 															</div> <!-- /controls -->
 														</div> <!-- /control-group -->
 
+														<?//php include 'clientes.php'; ?>
+
+														<!-- Group of default radios - option 1 -->
+														<br>
+														<input type="checkbox" name="cp_chek" value="1" id="cp_chek" > Cp
+
+														<div id="formCp" style="display: none;">
 														<div class="control-group">
-															<label class="control-label" >Rango de altura<b style="color:#FF0000";>*</b></label>
+															<label class="control-label" for="cp">Rango de altura<b style="color:#FF0000";>*</b></label>
 															<div class="controls">
 																<!--<input type="text" class="form-control text inline span6" name="calle" id="firstname" value="">-->
-																<select id="alturas" data-size="5" data-hide-disabled="true"  onchange="selectCP(this); selectCPA(this)"  class="selectpicker" data-live-search="true" title="Seleccione Rango de Altura"  name="alturaSeleccionada" required>
+																<select id="alturasCp" data-size="5" data-hide-disabled="true"  onchange="selectCP(this);"  class="selectpicker" data-live-search="true" title="Seleccione Rango de Altura"  name="alturaSeleccionadaCp" required>
 																	<option value="">Seleccione Rango de altura</option>
 																	<?php
 																	/*while ($fila=mysqli_fetch_row($consultaLocalidades)) {
@@ -251,8 +281,29 @@
 															<label class="control-label" >CP<b style="color:#FF0000";>*</b></label>
 															<div class="controls">
 																<!--<input type="text" class="form-control text inline span6" name="calle" id="firstname" value="">-->
-																<select id="cp" data-size="5" data-hide-disabled="true"  class="selectpicker" data-live-search="true" name="CP" disabled>
+																<select id="cp" data-size="5" data-hide-disabled="true"  class="selectpicker" data-live-search="true" name="cp" disabled>
 																	<option value="">CP</option>
+																	<?php
+																	/*while ($fila=mysqli_fetch_row($consultaLocalidades)) {
+																	echo "<option value='".$fila['0']."'>".$fila['2']."</option>";
+																}*/
+																?>
+																</select>
+															</div> <!-- /controls -->
+														</div> <!-- /control-group -->
+														</div>
+
+														<br>
+
+														<input type="checkbox" name="cpa_chek" value="1" id="cpa_chek"> Cpa
+														<br>
+														<div id="formCpa" style="display: none;">
+														<div class="control-group">
+															<label class="control-label" for="cpa">Rango de altura<b style="color:#FF0000";>*</b></label>
+															<div class="controls">
+																<!--<input type="text" class="form-control text inline span6" name="calle" id="firstname" value="">-->
+																<select id="alturasCpa" data-size="5" data-hide-disabled="true"  onchange="selectCPA(this);"  class="selectpicker" data-live-search="true" title="Seleccione Rango de Altura"  name="alturaSeleccionadaCpa" required>
+																	<option value="">Seleccione Rango de altura</option>
 																	<?php
 																	/*while ($fila=mysqli_fetch_row($consultaLocalidades)) {
 																	echo "<option value='".$fila['0']."'>".$fila['2']."</option>";
@@ -266,7 +317,7 @@
 															<label class="control-label" >CPA<b style="color:#FF0000";>*</b></label>
 															<div class="controls">
 																<!--<input type="text" class="form-control text inline span6" name="calle" id="firstname" value="">-->
-																<select id="cpa" data-hide-disabled="true"  class="selectpicker" data-live-search="true" name="CPA" disabled>
+																<select id="cpa" data-hide-disabled="true"  class="selectpicker" data-live-search="true" name="cpa" disabled>
 																	<option value="">CPA</option>
 																	<?php
 																	/*while ($fila=mysqli_fetch_row($consultaLocalidades)) {
@@ -276,6 +327,7 @@
 																</select>
 															</div> <!-- /controls -->
 														</div> <!-- /control-group -->
+														</div>
 
 
 															<div class="control-group">
@@ -285,6 +337,7 @@
 																	</div> <!-- /controls -->
 														  </div> <!-- /control-group -->
 
+															<?php include 'cp.php'; ?>
 
 															<div class="control-group">
 																<label class="control-label" for="firstname">Cuerpo</label>
@@ -412,7 +465,7 @@
 												<div class="form-group">
 												<script src="js/datatables.js"></script>
 												<script src="js/dataTables.bootstrap.js"></script>
-												<script src="js/jquery-3.4.1.min.js"></script>
+
 												<?php
 												echo "<table  class='table table-bordered table-hover table-striped display AllDataTables'>";
 												echo "<thead>";
@@ -498,7 +551,8 @@
 		<script src="javascript/codigoPostal.js"></script>
 		<script src="javascript/localidad.js"></script>
 		<script src="javascript/calles.js"></script>
-		<script src="javascript/alturas.js"></script>
+		<script src="javascript/alturasCp.js"></script>
+		<script src="javascript/alturasCpa.js"></script>
 		<script src="javascript/cpa.js"></script>
 
 		<script>
